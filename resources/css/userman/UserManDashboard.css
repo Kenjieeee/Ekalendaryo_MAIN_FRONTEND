@@ -1,0 +1,554 @@
+#toast {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+.header {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #f5fbf7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border-bottom: 1px solid #cde3d3;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: #064420;
+}
+.logo img {
+    width: 350px;
+    height: 40px;
+    margin-right: 10px;
+}
+.logo span {
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #064420;
+    margin-left: 6px;
+    font-style: italic;
+}
+
+.logout_btn {
+    border: 1px solid #064420;
+    color: #064420;
+    background: white;
+    border-radius: 8px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.logout_btn:hover {
+    background-color: #eff8f2;
+}
+
+/* Navigation Tabs */
+.navbar {
+    display: flex;
+    background: white;
+    border-bottom: 2px solid #cde3d3;
+    padding-left: 20px;
+    gap: 15px;
+}
+
+.nav_item {
+    padding: 14px 30px;
+    text-decoration: none;
+    color: #064420;
+    font-weight: 300;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.nav_item:hover {
+    background-color: #eff8f2;
+}
+
+.nav_item.active {
+    border-bottom: 3px solid #064420;
+    color: #064420;
+    font-weight: 600;
+}
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f8f4;
+    margin: 0;
+    color: #2e2e2e;
+}
+
+/* Container */
+.dashboard_container {
+    padding: 1.5rem;
+}
+
+/* Welcome Card */
+.dashboard_welcome_card {
+    background-color: #eaf6ec;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.dashboard_welcome_card h2 {
+    margin: 0 0 5px 0;
+    color: #004d25;
+}
+
+.dashboard_school_year {
+    color: #007f3d;
+    font-size: 0.9rem;
+}
+
+.dashboard_change_year_btn {
+    background-color: #007f3d;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.dashboard_change_year_btn:hover {
+    background-color: #005d2c;
+}
+
+/* Search */
+.dashboard_search_card {
+    background-color: #ffffff;
+    border: 1px solid #d8eeda;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard_search_input {
+    width: calc(100% - 90px);
+    padding: 8px 10px;
+    border: 1px solid #cde6cd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.dashboard_clear_btn {
+    background-color: #ffffff;
+    border: 1px solid #cde6cd;
+    color: #004d25;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.dashboard_clear_btn:hover {
+    background-color: #eaf6ec;
+}
+
+/* Stats */
+.dashboard_stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard_stat_box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    border: 1px solid #d8eeda;
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.dashboard_stat_box h3 {
+    margin: 5px 0;
+    color: #004d25;
+    font-size: 1rem;
+}
+
+.dashboard_stat_box p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007f3d;
+}
+
+.dashboard_stat_box:hover {
+    box-shadow: 0 2px 6px rgba(0, 100, 0, 0.15);
+}
+
+.dashboard_clickable {
+    cursor: pointer;
+}
+
+/* Upcoming Events */
+.dashboard_upcoming_card {
+    background-color: #ffffff;
+    border: 1px solid #d8eeda;
+    border-radius: 10px;
+    padding: 1.2rem;
+}
+
+.dashboard_upcoming_title {
+    color: #004d25;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* --- GRID LAYOUT (4 Items Per Row) --- */
+.dashboard_events_grid {
+    display: grid;
+    /* Forces 4 columns of equal width */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    column-gap: 20px;
+    row-gap: 30px;
+    margin-top: 20px;
+}
+
+/* Make sure the cards fill the height if description lengths vary */
+.dashboard_event_card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures cards in the same row are equal height */
+}
+
+.dashboard_event_details {
+    font-size: 0.85rem;
+    color: #444;
+    margin: 4px 0;
+}
+
+/* RESPONSIVENESS: Adjust columns for smaller screens */
+@media (max-width: 1200px) {
+    .dashboard_events_grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row on laptops */
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard_events_grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard_events_grid {
+        grid-template-columns: 1fr; /* 1 per row on mobile */
+    }
+}
+
+.dashboard_event_card:hover {
+    background-color: #f5fbf5;
+}
+
+.dashboard_event_title {
+    font-weight: 600;
+    color: #004d25;
+}
+
+.dashboard_event_details {
+    font-size: 0.85rem;
+    color: #444;
+    margin: 4px 0;
+}
+
+.dashboard_event_tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.dashboard_tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.dashboard_tag_admin {
+    background-color: #007f3d;
+    color: white;
+}
+
+/* Modal */
+.dashboard_modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dashboard_modal_content {
+    background: #ffffff;
+    border-radius: 10px;
+    width: 520px;
+    max-width: 90%;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.dashboard_modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d8eeda;
+    padding-bottom: 0.5rem;
+}
+
+.dashboard_modal_header h3 {
+    margin: 0;
+    color: #004d25;
+    font-size: 1.05rem;
+}
+
+.dashboard_close_btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.dashboard_modal_body {
+    margin-top: 1rem;
+}
+
+.dashboard_modal_body p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard_department_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.dashboard_department_card {
+    border: 1px solid #cde6cd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    background-color: #fff;
+    transition: 0.2s;
+}
+
+.dashboard_department_card:hover {
+    background-color: #f2fbf2;
+}
+
+.dashboard_department_card h4 {
+    margin: 0;
+    color: #004d25;
+    font-size: 0.95rem;
+}
+
+.dashboard_department_card p {
+    margin: 5px 0 0;
+    font-size: 0.85rem;
+    color: #007f3d;
+}
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: 1px solid #006400;
+    border-radius: 6px;
+    background: none;
+    color: #006400;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #006400;
+    color: #fff;
+}
+
+.logout-btn .icon {
+    font-style: normal; /* so it doesn’t go italic */
+}
+/* ================================
+   EDIT USER PAGE STYLES
+   ================================ */
+.edituser_wrapper {
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 35px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+}
+
+.edituser_wrapper h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.edituser_form-group {
+    margin-bottom: 18px;
+}
+
+.edituser_label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.edituser_input,
+.edituser_select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    font-size: 0.95rem;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+
+.edituser_input:focus,
+.edituser_select:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+.edituser_actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.edituser_btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.edituser_btn-save {
+    background-color: green;
+    color: #fff;
+}
+
+.edituser_btn-save:hover {
+    background-color: green;
+    transform: scale(1.03);
+}
+
+.edituser_btn-cancel {
+    background-color: #f1f1f1;
+    color: #444;
+    text-decoration: none;
+}
+
+.edituser_btn-cancel:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .edituser_wrapper {
+        padding: 25px;
+    }
+
+    .edituser_actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .edituser_btn {
+        width: 100%;
+    }
+}
+.edit-btn,
+.delete-btn {
+    border: none;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+/* Edit button styling */
+.edit-btn {
+    color: green; /* blue */
+}
+
+.edit-btn:hover {
+    background-color: #e0e7ff;
+}
+.dashboard_tag_upcoming {
+    background: #2b5eff;
+    color: #fff;
+}
+.dashboard_tag_ongoing {
+    background: #ffb800;
+    color: #fff;
+}
+.dashboard_tag_cancelled {
+    background: #e53935;
+    color: #fff;
+}

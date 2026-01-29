@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #ecfdf5;
+    color: #1f2937;
+}
+
+.container {
+    padding: 32px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.filter-bar {
+    background-color: #f0fdf4;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.filter-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1fae5;
+}
+
+.filter-bar select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1fae5;
+    background: white;
+    cursor: pointer;
+}
+
+.filter-bar button {
+    padding: 10px 16px;
+    background-color: #ecfdf5;
+    border: 1px solid #d1fae5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.event-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.event-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.event-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tag {
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.bsis-act {
+    background: #047857;
+}
+.sports {
+    background: #16a34a;
+}
+.admin {
+    background: #b45309;
+}
+
+.status {
+    background: #e5e7eb;
+    color: #111827;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-transform: lowercase;
+}
+
+.event-details {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.footer-box {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 20px auto 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    color: #374151;
+}
+
+.footer-box span {
+    font-weight: 500;
+}
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: 1px solid #006400;
+    border-radius: 6px;
+    background: none;
+    color: #006400;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #006400;
+    color: #fff;
+}
+
+.logout-btn .icon {
+    font-style: normal; /* so it doesn’t go italic */
+}
+/* =========================
+   SIMPLE PAGINATION (NO SVG)
+   ========================= */
+
+.simple-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 30px 0;
+}
+
+.simple-pagination a,
+.simple-pagination span {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+    border: 1px solid #ddd;
+
+    font-size: 14px;
+    text-decoration: none;
+    background: #fff;
+    color: #333;
+}
+
+.simple-pagination a:hover {
+    background: #f1f1f1;
+}
+
+.simple-pagination .active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+    font-weight: 600;
+}
+
+.simple-pagination .disabled {
+    color: #aaa;
+    background: #f9f9f9;
+    cursor: not-allowed;
+}
+
+/* Feedback Button */
+.feedback-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #17a2b8;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.feedback-btn:hover {
+    background-color: #138496;
+    transform: scale(1.05);
+}
+
+/* Feedback modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 60%;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #007bff;
+}
+
+/* Feedback Form Styling */
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#feedbackForm label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+}
+
+#feedbackForm textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1fae5;
+    resize: vertical;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#feedbackForm textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+#feedbackForm button[type="submit"] {
+    padding: 10px 16px;
+    background-color: #2563eb; /* Blue button */
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#feedbackForm button[type="submit"]:hover {
+    background-color: #1e40af;
+    transform: scale(1.02);
+}
+
+#feedbackForm button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.feedback-btn.submitted {
+    cursor: default;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
