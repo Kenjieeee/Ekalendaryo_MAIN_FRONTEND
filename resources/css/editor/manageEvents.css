@@ -191,17 +191,18 @@ textarea {
     min-height: 60px;
 }
 
-/* ✅ FIXED SECTION BELOW */
+/* Make Select All Year Levels same width as Target Users dropdown */
 .checkbox_select {
-    width: 150px;
+    width: 100%; /* match container width / dropdown width */
     border: 3px solid #036938;
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 8px 12px;
     display: flex;
-    align-items: center; /* vertically center */
-    justify-content: center; /* horizontally center the content */
-    gap: 6px; /* space between checkbox and label */
+    align-items: center;
+    justify-content: flex-start; /* align checkbox + label left */
+    gap: 6px;
+    box-sizing: border-box; /* ensures padding doesn't break width */
 }
 
 .checkbox-inline {
@@ -437,4 +438,143 @@ button {
 /* Show modal */
 .custom-modal-overlay.active {
     display: flex;
+}
+
+
+/* === Mobile First Adjustments === */
+
+/* Small devices: phones (max-width: 600px) */
+@media (max-width: 600px) {
+    .event-container {
+        padding: 15px;
+    }
+
+    .create-btn {
+        position: static;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .event-card {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .event-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .tags {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .event-info {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .actions {
+        position: static;
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .modal {
+        width: 95%;
+        height: 90%;
+        padding: 15px 20px;
+    }
+
+    .checkbox-group,
+    .checkbox-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+        gap: 8px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .checkbox_select {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-cancel,
+    .btn-create {
+        width: 100%;
+    }
+}
+
+/* Medium devices: tablets (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .event-container {
+        padding: 20px;
+    }
+
+    .create-btn {
+        position: static;
+        margin-bottom: 15px;
+        width: auto;
+    }
+
+    .event-card {
+        padding: 18px;
+        font-size: 0.95rem;
+    }
+
+    .event-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .actions {
+        position: static;
+        margin-top: 10px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .modal {
+        width: 90%;
+        height: 85%;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    }
+}
+
+/* Large devices: desktops (901px+) */
+@media (min-width: 901px) {
+    .event-container {
+        padding: 30px;
+    }
+
+    .event-card {
+        padding: 20px 24px;
+    }
+
+    .event-info {
+        flex-direction: row;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

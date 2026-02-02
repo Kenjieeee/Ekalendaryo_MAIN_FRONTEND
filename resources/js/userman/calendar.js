@@ -158,60 +158,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openDayModal(date) {
-        modal.style.display = "flex";
-        modalTitle.textContent = formatDate(date);
+    modal.style.display = "flex";
 
-        const dayEvents = formattedEvents.filter((ev) => ev.date === date);
-        const startHour = 7,
-            endHour = 18,
-            slotInterval = 30;
-        let timeSlotsHTML = "";
-        const renderedEvents = new Set();
+    const d = new Date(date + "T00:00:00");
+    const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const dayName = weekdays[d.getDay()];
 
-        function formatTime12Hour(hour, min) {
-            const period = hour >= 12 ? "PM" : "AM";
-            let hour12 = hour % 12;
-            if (hour12 === 0) hour12 = 12;
-            return `${hour12}:${String(min).padStart(2, "0")} ${period}`;
-        }
+    // For mobile, show the day name in the modal title
+    modalTitle.textContent = `${formatDate(date)} (${dayName})`;
 
-        for (let hour = startHour; hour < endHour; hour++) {
-            for (let min = 0; min < 60; min += slotInterval) {
-                const slotTimeNum = hour + min / 60;
-                const timeLabel = formatTime12Hour(hour, min);
-                const eventForSlot = dayEvents.find((ev) => {
-                    const startNum = timeStrToNumber(ev.timeStart);
-                    const endNum = timeStrToNumber(ev.timeEnd);
-                    return slotTimeNum >= startNum && slotTimeNum < endNum;
-                });
+    const dayEvents = formattedEvents.filter(ev => ev.date === date);
+    const startHour = 7, endHour = 18, slotInterval = 30;
+    let timeSlotsHTML = "";
+    const renderedEvents = new Set();
 
-                if (eventForSlot) {
-                    const eventStartNum = timeStrToNumber(
-                        eventForSlot.timeStart,
-                    );
-                    const isStartSlot =
-                        Math.abs(slotTimeNum - eventStartNum) < 0.01;
-                    const bgColor =
-                        departmentColors[eventForSlot.type.toLowerCase()] ||
-                        departmentColors.default;
+    function formatTime12Hour(hour, min) {
+        const period = hour >= 12 ? "PM" : "AM";
+        let hour12 = hour % 12;
+        if (hour12 === 0) hour12 = 12;
+        return `${hour12}:${String(min).padStart(2,"0")} ${period}`;
+    }
 
-                    if (
-                        isStartSlot &&
-                        !renderedEvents.has(eventForSlot.title)
-                    ) {
-                        renderedEvents.add(eventForSlot.title);
-                        timeSlotsHTML += `<div class='calendar_event-time' style='background-color:${bgColor}; color:#fff; font-weight:bold; padding:8px;'>${timeLabel} - ${eventForSlot.title}</div>`;
-                    } else {
-                        timeSlotsHTML += `<div class='calendar_event-time' style='background-color:${bgColor}; color:#fff; padding:8px;'>${timeLabel}</div>`;
-                    }
+    for(let hour=startHour; hour<endHour; hour++){
+        for(let min=0; min<60; min+=slotInterval){
+            const slotTimeNum = hour + min/60;
+            const timeLabel = formatTime12Hour(hour, min);
+            const eventForSlot = dayEvents.find(ev=>{
+                const startNum = timeStrToNumber(ev.timeStart);
+                const endNum = timeStrToNumber(ev.timeEnd);
+                return slotTimeNum >= startNum && slotTimeNum < endNum;
+            });
+
+            if(eventForSlot){
+                const eventStartNum = timeStrToNumber(eventForSlot.timeStart);
+                const isStartSlot = Math.abs(slotTimeNum - eventStartNum) < 0.01;
+                const bgColor = departmentColors[eventForSlot.type.toLowerCase()] || departmentColors.default;
+
+                if(isStartSlot && !renderedEvents.has(eventForSlot.title)){
+                    renderedEvents.add(eventForSlot.title);
+                    timeSlotsHTML += `<div class='calendar_event-time' style='background-color:${bgColor}; color:#fff; font-weight:bold; padding:8px;'>${timeLabel} - ${eventForSlot.title}</div>`;
                 } else {
-                    timeSlotsHTML += `<div class='calendar_noevent-time' style='background-color:#f5f5f5; color:#666; padding:8px;'>${timeLabel}</div>`;
+                    timeSlotsHTML += `<div class='calendar_event-time' style='background-color:${bgColor}; color:#fff; padding:8px;'>${timeLabel}</div>`;
                 }
+            } else {
+                timeSlotsHTML += `<div class='calendar_noevent-time' style='background-color:#f5f5f5; color:#666; padding:8px;'>${timeLabel}</div>`;
             }
         }
-
-        modalBody.innerHTML = `<div class="calendar_noevent-list">${timeSlotsHTML}</div>`;
     }
+
+    modalBody.innerHTML = `<div class="calendar_noevent-list">${timeSlotsHTML}</div>`;
+}
+
 
     function openEventDetail(eventData) {
         modal.style.display = "flex";
@@ -338,16 +335,3 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial render
     renderCalendar();
 });
-
-
-/*RESPONSIVENESS CHANGES HERE*/
-
-/*/ Mobile menu toggle
-const menuBtn = document.createElement("button");
-menuBtn.classList.add("menu-btn");
-menuBtn.innerHTML = "☰"; // hamburger icon
-document.querySelector(".header").prepend(menuBtn);
-
-menuBtn.addEventListener("click", () => {
-    document.querySelector(".navbar").classList.toggle("active");
-});*/

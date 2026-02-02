@@ -9,20 +9,23 @@
     --muted: #547a62;
     --radius: 10px;
 }
+
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 body {
     background: var(--bg);
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f3fbf4;
     color: #333;
 }
+
 .profile_container {
     padding: 30px;
 }
+
 h1 {
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -38,13 +41,16 @@ h1 {
     font-size: 0.9rem;
     transition: all 0.2s;
 }
+
 .btn:hover {
     filter: brightness(1.1);
 }
+
 .btn-primary {
     background: var(--accent);
     color: white;
 }
+
 .btn-outline {
     background: white;
     color: var(--accent);
@@ -55,6 +61,7 @@ h1 {
     right: 60px;
     top: 200px;
 }
+
 .badge {
     background: #e3ebff;
     color: #214b8f;
@@ -63,11 +70,13 @@ h1 {
     border-radius: 6px;
     font-weight: 500;
 }
+
 .section {
     margin-bottom: 25px;
     padding-left: 50px;
     padding-right: 50px;
 }
+
 .card {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -77,12 +86,17 @@ h1 {
     background-color: white;
 }
 
+/* =============================
+   Row and Input Boxes
+   ============================= */
 .row {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
     margin-top: 10px;
+    flex-wrap: wrap; /* Ensure rows wrap on small screens */
 }
+
 .input-box {
     background: var(--inner);
     border: 1px solid var(--border);
@@ -91,6 +105,7 @@ h1 {
     flex: 1;
     color: var(--muted);
 }
+
 .input-box input {
     width: 100%;
     border: none;
@@ -99,6 +114,7 @@ h1 {
     color: var(--muted);
 }
 
+/* Inner Panel */
 .inner-panel {
     background: var(--inner);
     border: 1px solid var(--border);
@@ -141,6 +157,7 @@ h1 {
     text-align: right;
     margin-top: 8px;
 }
+
 .actions button {
     margin-left: 5px;
 }
@@ -154,9 +171,12 @@ h1 {
     top: 11px;
     color: #666;
 }
+
 .password-wrapper {
     position: relative;
 }
+
+/* Logout Button */
 .logout-btn {
     display: flex;
     align-items: center;
@@ -177,8 +197,10 @@ h1 {
 }
 
 .logout-btn .icon {
-    font-style: normal; /* so it doesn’t go italic */
+    font-style: normal;
 }
+
+/* Toast Notification */
 .toast {
     position: fixed;
     bottom: 30px;
@@ -204,6 +226,88 @@ h1 {
         opacity: 0;
     }
 }
+
 .error-message {
     color: red;
+}
+
+/* ==============================
+   Employment Information Centered
+   ============================== */
+.employment {
+    text-align: center; /* Center all text inside employment section */
+    margin-top: 15px;
+}
+
+.employment p {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.employment-row {
+    display: flex;
+    justify-content: center; /* Center each row */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.employment-row span {
+    margin-left: 5px; /* spacing between label and value */
+}
+
+/* ==============================
+   Responsive Adjustments
+   ============================== */
+@media (max-width: 900px) {
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    h1 {
+        padding-left: 20px;
+        font-size: 1.3rem;
+    }
+
+    .row {
+        flex-direction: column; /* stack input boxes vertically on smaller screens */
+    }
+
+    .top-right {
+        position: static;
+        margin-top: 10px;
+        text-align: right;
+    }
+
+    .employment-row {
+        flex-direction: column; /* stack label/value vertically */
+        align-items: center;
+    }
+
+    .input-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.2rem;
+        padding-left: 15px;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .inner-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .expandable .actions {
+        text-align: center;
+    }
 }
