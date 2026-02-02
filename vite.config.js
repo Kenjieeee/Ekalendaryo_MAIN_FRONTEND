@@ -27,6 +27,8 @@ export default defineConfig({
 
                 "resources/js/viewer/history.js",
                 "resources/js/viewer/profile.js",
+                "resources/js/viewer/dashboard.js",
+                "resources/js/viewer/notification.js",
 
                 // CSS FILES
                 "resources/css/loginStyles.css",

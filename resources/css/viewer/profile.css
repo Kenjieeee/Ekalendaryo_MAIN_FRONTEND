@@ -207,3 +207,54 @@ h1 {
 .error-message {
     color: red;
 }
+
+
+
+/*CHANGES IN RESPONSIVENESS HERE*/
+
+/* --- MOBILE NAV TOGGLE --- */
+.menu-btn {
+    display: none; /* hidden by default */
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #064420;
+}
+
+/* Header adjustments for mobile */
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .logo img {
+        width: 180px;
+        height: auto;
+    }
+
+    .navbar {
+        display: none; /* hide nav by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0;
+        gap: 0;
+        border-top: 1px solid #cde3d3;
+    }
+
+    .nav_item {
+        padding: 12px 20px;
+        border-bottom: 1px solid #cde3d3;
+    }
+
+    .menu-btn {
+        display: block; /* show the menu button */
+    }
+}
+
+/* Show nav when active */
+.navbar.active {
+    display: flex;
+}
