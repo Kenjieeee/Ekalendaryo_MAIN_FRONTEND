@@ -173,54 +173,63 @@ input[type="text"] {
     cursor: pointer;
 }
 
-.users_table {
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #d1f0d4;
-    padding: 0.8em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    font-size: 13px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
 
-table {
+/* Table design enhancement */
+.users_table table {
     width: 100%;
     border-collapse: collapse;
-    padding-left: 50px;
-    padding-right: 50px;
+    font-family: "Poppins", sans-serif;
 }
 
-th,
-td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-th {
-    color: #1e392a;
+/* Table header styling */
+.users_table th {
+    background-color: #27ae60; /* green header */
+    color: white;
     font-weight: 600;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #1e392a;
+    border-radius: 5px 5px 0 0; /* rounded corners for header */
 }
 
-.users_role {
-    background-color: #e8f0ff;
+/* Table body cells */
+.users_table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
     color: #1e392a;
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
+/* Alternate row colors for readability */
+.users_table tr:nth-child(even) {
+    background-color: #f8fff8;
+}
+
+/* Row hover effect */
+.users_table tr:hover {
+    background-color: #e0f7e5;
+    transition: background-color 0.2s ease;
+}
+
+/* Rounded corners for table container */
+.users_table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Optional: style actions/icons inside table */
 .users_actions i {
-    margin-right: 8px;
-    cursor: pointer;
-    color: #27ae60;
-    font-size: 14px;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 .users_actions i:hover {
-    color: #1e392a;
+    background-color: #d1f0d4;
+    color: #27ae60;
 }
+
 
 /* ---- Modal ---- */
 .users_modal {
@@ -1514,7 +1523,7 @@ th {
 .users_table.scrollable thead th {
     position: sticky;
     top: 0;
-    background-color: #f8f8f8; /* header background */
+    
     z-index: 10;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
 }
@@ -1546,39 +1555,64 @@ th {
     color: #064420;
 }
 
-/* Header adjustments for mobile */
+/* ---------------- TABLE RESPONSIVENESS ----------------- */
+
+/* Make table scrollable on small screens */
 @media (max-width: 900px) {
-    .header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px 15px;
+    .users_table {
+        overflow-x: auto; /* horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
     }
 
-    .logo img {
-        width: 180px;
-        height: auto;
-    }
-
-    .navbar {
-        display: none; /* hide nav by default on mobile */
-        flex-direction: column;
-        width: 100%;
-        padding-left: 0;
-        gap: 0;
-        border-top: 1px solid #cde3d3;
-    }
-
-    .nav_item {
-        padding: 12px 20px;
-        border-bottom: 1px solid #cde3d3;
-    }
-
-    .menu-btn {
-        display: block; /* show the menu button */
+    .users_table table {
+        width: 100%; /* maintain table width */
+        min-width: 600px; /* prevents columns from squeezing too much */
     }
 }
 
-/* Show nav when active */
-.navbar.active {
-    display: flex;
+/* Mobile: Stack rows like cards for very small screens */
+@media (max-width: 600px) {
+    .users_table table,
+    .users_table thead,
+    .users_table tbody,
+    .users_table th,
+    .users_table td,
+    .users_table tr {
+        display: block; /* block layout for stacking */
+    }
+
+    .users_table thead tr {
+        display: none; /* hide header row */
+    }
+
+    .users_table tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #d1f0d4;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: white;
+    }
+
+    .users_table td {
+        padding: 6px 10px;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        position: relative;
+    }
+
+    /* Add labels before each cell using data-* attribute */
+    .users_table td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #27ae60;
+        flex: 1;
+    }
+
+    .users_table td span {
+        flex: 1;
+        text-align: right;
+        color: #1e392a;
+    }
 }

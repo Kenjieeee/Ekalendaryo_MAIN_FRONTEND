@@ -259,3 +259,30 @@ h1 {
 .navbar.active {
     display: flex;
 }
+
+/* Center Employee Information */
+.employment {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    justify-content: center; /* center vertically if needed */
+    text-align: center; /* center text inside spans */
+    gap: 10px; /* spacing between rows */
+}
+
+.employment-row div {
+    display: flex;
+    justify-content: center; /* center the label-value pairs */
+    gap: 10px; /* spacing between label and value */
+}
+
+/* Optional: adjust label and value styling */
+.employment-row span:first-child {
+    font-weight: 500;
+    min-width: 80px; /* optional, ensures label width is consistent */
+}
+
+.employment-row span:last-child {
+    font-weight: 600;
+    color: var(--text);
+}
