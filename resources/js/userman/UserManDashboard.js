@@ -38,3 +38,17 @@ window.addEventListener("click", (e) => {
         dashboardModal.style.display = "none";
     }
 });
+
+
+/*RESPONSIVENESS CHANGES HERE*/
+
+// Mobile menu toggle
+const menuBtn = document.createElement("button");
+menuBtn.classList.add("menu-btn");
+menuBtn.innerHTML = "☰"; // hamburger icon
+document.querySelector(".header").prepend(menuBtn);
+
+menuBtn.addEventListener("click", () => {
+    document.querySelector(".navbar").classList.toggle("active");
+});
+

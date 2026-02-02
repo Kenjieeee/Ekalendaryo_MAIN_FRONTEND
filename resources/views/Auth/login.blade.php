@@ -1,10 +1,16 @@
 <x-loginLayout>
+
+    <img src = "{{ asset('img/BPC_BG.png') }}">
+
+
     <div class="container">
         <!-- Logo placeholder (replace this image with your own) -->
         <div class="logo">
             <img src="{{ asset('img/Main_logo.png') }}" alt="eKalendaryo Logo">
             <p class="title">Centralized Calendar of Activities and Notification System for School Events</p>
         </div>
+        
+         
 
         <!-- Sign In Box -->
         <div class="box">

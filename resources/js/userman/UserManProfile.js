@@ -219,3 +219,17 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
+
+
+
+/*RESPONSIVENESS CHANGES HERE*/
+
+// Mobile menu toggle
+const menuBtn = document.createElement("button");
+menuBtn.classList.add("menu-btn");
+menuBtn.innerHTML = "☰"; // hamburger icon
+document.querySelector(".header").prepend(menuBtn);
+
+menuBtn.addEventListener("click", () => {
+    document.querySelector(".navbar").classList.toggle("active");
+});

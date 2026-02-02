@@ -11,8 +11,9 @@
 <header>
     <header class="header">
         <div class="logo">
+            <img src="{{ asset('img/BPCLOGO.png') }}" alt="BPC Logo" style ="width: 60px;">
             <img src="{{ asset('img/Main_logo.png') }}" alt="eKalendaryo Logo">
-            <span>User Management</span>
+            {{--<span>User Management</span>--}}
         </div>
         <form action="{{ route('UserManagement.logout') }}" method="post">
             @csrf
