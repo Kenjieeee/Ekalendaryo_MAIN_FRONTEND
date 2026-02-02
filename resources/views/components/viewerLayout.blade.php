@@ -59,8 +59,9 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo">
+            <img src="{{ asset('img/BPCLOGO.png') }}" alt="BPC Logo" style="width: 60px;">
             <img src="{{ asset('img/Main_logo.png') }}" alt="eKalendaryo Logo">
-            <span>Viewer</span>
+            
         </div>
         <form action="{{ route('Viewer.logout') }}" method="post">
             @csrf

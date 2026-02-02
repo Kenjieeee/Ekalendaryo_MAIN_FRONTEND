@@ -1,3 +1,6 @@
+/* ==============================
+   General Styles
+============================== */
 :root {
     --bg: #f3fbf4;
     --panel: #eefaf0;
@@ -9,20 +12,22 @@
     --muted: #547a62;
     --radius: 10px;
 }
+
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 body {
     background: var(--bg);
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3fbf4;
     color: #333;
 }
+
 .profile_container {
     padding: 30px;
 }
+
 h1 {
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -30,6 +35,9 @@ h1 {
     padding-left: 50px;
 }
 
+/* ==============================
+   Buttons
+============================== */
 .btn {
     border: 1px solid var(--accent);
     border-radius: var(--radius);
@@ -38,31 +46,13 @@ h1 {
     font-size: 0.9rem;
     transition: all 0.2s;
 }
-.btn:hover {
-    filter: brightness(1.1);
-}
-.btn-primary {
-    background: var(--accent);
-    color: white;
-}
-.btn-outline {
-    background: white;
-    color: var(--accent);
-}
+.btn:hover { filter: brightness(1.1); }
+.btn-primary { background: var(--accent); color: white; }
+.btn-outline { background: white; color: var(--accent); }
 
-.top-right {
-    position: absolute;
-    right: 60px;
-    top: 200px;
-}
-.badge {
-    background: #e3ebff;
-    color: #214b8f;
-    font-size: 12px;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-weight: 500;
-}
+/* ==============================
+   Layout & Cards
+============================== */
 .section {
     margin-bottom: 25px;
     padding-left: 50px;
@@ -83,6 +73,7 @@ h1 {
     margin-bottom: 20px;
     margin-top: 10px;
 }
+
 .input-box {
     background: var(--inner);
     border: 1px solid var(--border);
@@ -91,6 +82,7 @@ h1 {
     flex: 1;
     color: var(--muted);
 }
+
 .input-box input {
     width: 100%;
     border: none;
@@ -109,15 +101,38 @@ h1 {
     align-items: center;
 }
 
-.muted {
-    font-size: 13px;
-    color: var(--muted);
+/* ==============================
+   Employee Information Centered
+============================== */
+.employment {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    justify-content: center;
+    text-align: center; /* center text inside spans */
+    gap: 10px;
 }
 
-.hidden {
-    display: none;
+.employment-row {
+    display: flex;
+    justify-content: center; /* center label-value pairs */
+    flex-wrap: wrap; /* wrap for small screens */
+    gap: 8px;
 }
 
+.employment-row span:first-child {
+    font-weight: 500;
+}
+
+.employment-row span:last-child {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* ==============================
+   Expandable Panels & Passwords
+============================== */
+.hidden { display: none; }
 .expandable {
     background: var(--inner);
     border: 1px solid var(--border);
@@ -129,21 +144,19 @@ h1 {
 
 .expandable input {
     width: 100%;
-    border: none;
+    border: 1px solid var(--border);
     background: #fff;
     border-radius: var(--radius);
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid var(--border);
 }
 
 .expandable .actions {
     text-align: right;
     margin-top: 8px;
 }
-.actions button {
-    margin-left: 5px;
-}
+
+.actions button { margin-left: 5px; }
 
 .eye-btn {
     background: none;
@@ -154,31 +167,12 @@ h1 {
     top: 11px;
     color: #666;
 }
-.password-wrapper {
-    position: relative;
-}
-.logout-btn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 10px;
-    border: 1px solid #006400;
-    border-radius: 6px;
-    background: none;
-    color: #006400;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: 0.2s ease;
-}
 
-.logout-btn:hover {
-    background: #006400;
-    color: #fff;
-}
+.password-wrapper { position: relative; }
 
-.logout-btn .icon {
-    font-style: normal; /* so it doesn’t go italic */
-}
+/* ==============================
+   Toast
+============================== */
 .toast {
     position: fixed;
     bottom: 30px;
@@ -192,69 +186,46 @@ h1 {
     opacity: 0;
     animation: fadein 0.5s forwards, fadeout 0.5s 3s forwards;
 }
+@keyframes fadein { to { opacity: 1; } }
+@keyframes fadeout { to { opacity: 0; } }
 
-@keyframes fadein {
-    to {
-        opacity: 1;
-    }
-}
+/* ==============================
+   Error Messages
+============================== */
+.error-message { color: red; }
 
-@keyframes fadeout {
-    to {
-        opacity: 0;
-    }
-}
-.error-message {
-    color: red;
-}
-
-
-
-/*CHANGES IN RESPONSIVENESS HERE*/
-
-/* --- MOBILE NAV TOGGLE --- */
-.menu-btn {
-    display: none; /* hidden by default */
-    font-size: 1.4rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: #064420;
-}
-
-/* Header adjustments for mobile */
-@media (max-width: 900px) {
-    .header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px 15px;
+/* ==============================
+   Responsiveness
+============================== */
+@media (max-width: 1024px) {
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .logo img {
-        width: 180px;
-        height: auto;
-    }
+    h1 { padding-left: 20px; font-size: 1.3rem; }
+}
 
-    .navbar {
-        display: none; /* hide nav by default on mobile */
+@media (max-width: 768px) {
+    .row {
         flex-direction: column;
-        width: 100%;
-        padding-left: 0;
-        gap: 0;
-        border-top: 1px solid #cde3d3;
     }
 
-    .nav_item {
-        padding: 12px 20px;
-        border-bottom: 1px solid #cde3d3;
+    .employment-row {
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .menu-btn {
-        display: block; /* show the menu button */
-    }
+    h1 { font-size: 1.2rem; padding-left: 15px; }
 }
 
-/* Show nav when active */
-.navbar.active {
-    display: flex;
+@media (max-width: 480px) {
+    .profile_container { padding: 15px; }
+    h1 { font-size: 1.1rem; padding-left: 10px; }
+    .btn { padding: 6px 10px; font-size: 0.85rem; }
+    .employment-row span:first-child,
+    .employment-row span:last-child {
+        display: block;
+        margin: 0;
+    }
 }
