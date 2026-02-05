@@ -1616,3 +1616,41 @@ th {
         color: #1e392a;
     }
 }
+
+/* ============================= */
+/* RESPONSIVE USER TABLE FIX */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* Make table scroll instead of hiding columns */
+  .users_table-wrapper,
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table#userTable {
+    min-width: 700px; /* prevents columns from collapsing */
+  }
+
+  /* Force action/menu column to stay visible */
+  #userTable td:last-child,
+  #userTable th:last-child {
+    display: table-cell !important;
+    visibility: visible !important;
+  }
+
+  /* Menu / action button */
+  .menu-btn,
+  .action-btn,
+  .dropdown-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+}
+

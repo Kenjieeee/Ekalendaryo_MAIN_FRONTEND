@@ -1,3 +1,6 @@
+/* ===============================
+   Base
+=============================== */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0fdf4;
@@ -11,25 +14,25 @@ body {
 =============================== */
 .page-header {
     max-width: 900px;
-    margin: 50px auto 20px auto;
+    margin: 40px auto 25px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0 20px;
+    padding: 0 25px;
 }
 
 .page-header h1 {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.6em;
+    font-weight: 600;
     margin: 0;
 }
 
 .notif-count {
     background-color: #dcfce7;
     color: #15803d;
-    padding: 6px 15px;
-    border-radius: 20px;
+    padding: 6px 16px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
@@ -43,9 +46,9 @@ body {
     margin: 0 auto 50px auto;
     background: white;
     border: 1px solid #bbf7d0;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* ===============================
@@ -54,14 +57,15 @@ body {
 .notif-title {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .notif-title h2 {
     color: #166534;
-    font-size: 18px;
+    font-size: 17px;
     margin: 0;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .bell {
@@ -70,7 +74,7 @@ body {
 }
 
 .subtitle {
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
     margin: 5px 0 20px 0;
 }
@@ -81,36 +85,46 @@ body {
 .notif-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
+/* ===============================
+   Notification Card
+=============================== */
 .notif-card {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     border-radius: 12px;
-    padding: 15px 20px;
-    border-left: 6px solid transparent;
+    padding: 16px 22px;
+    border-left: 5px solid transparent;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.notif-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* ===============================
    Content
 =============================== */
 .notif-info {
-    flex: 1 1 75%;
+    flex: 1;
 }
 
 .notif-heading {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 15px;
-    margin: 0;
+    margin: 0 0 4px 0;
 }
 
 .notif-sub {
     font-size: 13px;
     color: #555;
-    margin: 2px 0 8px 0;
+    margin: 0 0 8px 0;
 }
 
 .notif-details {
@@ -126,12 +140,12 @@ body {
 =============================== */
 .status {
     font-size: 12px;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 20px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
     text-transform: lowercase;
     align-self: flex-start;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 /* ===============================
@@ -141,16 +155,16 @@ body {
 /* 🟢 Upcoming */
 .notif-card.upcoming {
     background-color: #e6f9ec;
-    border-left: 6px solid #2ecc71;
+    border-left-color: #2ecc71;
 }
 .upcoming-status {
     color: #2ecc71;
 }
 
-/* 🔴 Canceled */
+/* 🔴 Cancelled */
 .notif-card.cancelled {
     background-color: #fdecea;
-    border-left: 6px solid #e74c3c;
+    border-left-color: #e74c3c;
 }
 .canceled-status {
     color: #e74c3c;
@@ -159,18 +173,18 @@ body {
 /* ⚪ Completed */
 .notif-card.completed {
     background-color: #f2f2f2;
-    border-left: 6px solid #95a5a6;
+    border-left-color: #95a5a6;
 }
 .completed-status {
     color: #7f8c8d;
 }
 
-/* 🔴 Ongoing */
+/* 🟡 Ongoing */
 .notif-card.ongoing {
     background-color: #fff5dc;
-    border-left: 6px solid #ffb800;
+    border-left-color: #ffb800;
 }
-.canceled-status {
+.ongoing-status {
     color: #ffb800;
 }
 
@@ -178,13 +192,9 @@ body {
    Pagination
 =============================== */
 .pagination-wrapper {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-}
-
-.pagination-wrapper nav {
-    background: none;
 }
 
 .simple-pagination {
@@ -228,16 +238,30 @@ body {
 }
 
 /* ===============================
-   Responsive
+   Mobile Responsive
 =============================== */
 @media (max-width: 600px) {
     .notif-card {
         flex-direction: column;
         align-items: flex-start;
+        padding: 14px 16px;
+    }
+
+    .notif-heading {
+        font-size: 14px;
+    }
+
+    .notif-sub {
+        font-size: 12px;
     }
 
     .status {
-        margin-top: 10px;
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .container {
+        padding: 20px 18px;
     }
 }
 
@@ -254,7 +278,7 @@ body {
     background: none;
     color: #006400;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: 0.2s ease;
 }
 
@@ -263,60 +287,6 @@ body {
     color: #fff;
 }
 
-.logout-btn .icon {
-    font-style: normal;
-}
-
 p {
     margin: 0;
-}
-
-
-/*CHANGES IN RESPONSIVENESS HERE*/
-
-/* --- MOBILE NAV TOGGLE --- */
-.menu-btn {
-    display: none; /* hidden by default */
-    font-size: 1.4rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: #064420;
-}
-
-/* Header adjustments for mobile */
-@media (max-width: 900px) {
-    .header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px 15px;
-    }
-
-    .logo img {
-        width: 180px;
-        height: auto;
-    }
-
-    .navbar {
-        display: none; /* hide nav by default on mobile */
-        flex-direction: column;
-        width: 100%;
-        padding-left: 0;
-        gap: 0;
-        border-top: 1px solid #cde3d3;
-    }
-
-    .nav_item {
-        padding: 12px 20px;
-        border-bottom: 1px solid #cde3d3;
-    }
-
-    .menu-btn {
-        display: block; /* show the menu button */
-    }
-}
-
-/* Show nav when active */
-.navbar.active {
-    display: flex;
 }

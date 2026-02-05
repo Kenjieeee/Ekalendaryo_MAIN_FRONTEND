@@ -18,93 +18,95 @@ body {
     padding: 30px 50px;
 }
 
-.content-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
+/* ==========================
+   SYSTEM ACTIVITY TRACKING HEADER
+   ========================== */
 .content h2 {
-    font-size: 22px;
+    font-size: 28px; /* bigger for prominence */
+    font-weight: 700;
+    color: #1c1c1c;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.08); /* subtle modern shadow */
 }
 
 /* Filter Dropdown */
 .filter-dropdown select {
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     background-color: #fff;
     border: 1px solid #cddfcc;
-    border-radius: 4px;
-    padding: 6px 30px 6px 10px;
+    border-radius: 6px;
+    padding: 8px 32px 8px 12px;
     font-size: 14px;
     cursor: pointer;
     color: #000;
     background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='black' d='M0 0l5 6 5-6z'/></svg>");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 12px center;
     background-size: 10px;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
 .filter-dropdown select:focus {
     outline: none;
     border-color: #a2c9a2;
-    box-shadow: 0 0 3px rgba(72, 187, 120, 0.3);
+    box-shadow: 0 0 6px rgba(72, 187, 120, 0.25);
 }
 
 /* Activity Section */
 .activity-section {
     background-color: #ecfff0;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 14px;
 }
 
+/* Activity Header */
 .activity-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 /* Activity Cards */
-.activity-card-cancelled {
-    background-color: lightcoral;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.activity-card-edited {
-    background-color: lightgoldenrodyellow;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
+.activity-card-cancelled,
+.activity-card-edited,
 .activity-card-created {
-    background-color: #c7f7c8;
-    border-radius: 10px;
-    padding: 15px 20px;
+    border-radius: 14px;
+    padding: 20px 25px;
     margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.activity-card-cancelled { background-color: #f9d6d5; }
+.activity-card-edited { background-color: #fff7c7; }
+.activity-card-created { background-color: #d6f7d7; }
+
+/* Hover Effect */
+.activity-card-cancelled:hover,
+.activity-card-edited:hover,
+.activity-card-created:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
 .activity-card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .activity-card-header .icon {
     font-size: 20px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 50%;
-    padding: 5px 10px;
-    margin-right: 10px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .activity-card-header .info h4 {
@@ -114,16 +116,17 @@ body {
 
 .activity-card-header .info p {
     font-size: 14px;
-    color: #333;
+    color: #555;
 }
 
 .activity-card-header .status {
-    background-color: white;
+    background-color: #fff;
     color: #075e2f;
-    padding: 2px 8px;
-    border-radius: 12px;
+    padding: 3px 10px;
+    border-radius: 16px;
     font-size: 12px;
-    text-transform: lowercase;
+    text-transform: capitalize;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
 /* Activity Meta */
@@ -131,9 +134,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    gap: 5px;
+    margin: 12px 0;
+    gap: 8px;
 }
 
 .activity-meta .performed {
@@ -144,8 +146,8 @@ body {
 /* Activity Details */
 .activity-details {
     background-color: #f8fdf8;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 12px 15px;
+    border-radius: 8px;
     font-size: 14px;
 }
 
@@ -159,14 +161,14 @@ body {
 .logout-btn {
     display: flex;
     align-items: center;
-    gap: 4px;
-    padding: 4px 10px;
+    gap: 6px;
+    padding: 6px 12px;
     border: 1px solid #006400;
-    border-radius: 6px;
+    border-radius: 8px;
     background: none;
     color: #006400;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: 0.2s ease;
 }
 
@@ -189,8 +191,8 @@ del {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
-    margin: 30px 0;
+    gap: 8px;
+    margin: 35px 0;
 }
 
 .simple-pagination a,
@@ -201,12 +203,13 @@ del {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #ddd;
     font-size: 14px;
     text-decoration: none;
     background: #fff;
     color: #333;
+    transition: 0.2s ease;
 }
 
 .simple-pagination a:hover {
@@ -238,27 +241,27 @@ del {
 .content-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
 }
 
 .content-header h2 {
-    font-size: 1.5rem;
+    font-size: 22px; /* smaller on mobile */
 }
 
 .filter-dropdown select {
     width: 100%;
-    max-width: 250px;
+    max-width: 260px;
 }
 
 .activity-section {
-    padding: 15px;
+    padding: 20px;
 }
 
 .activity-card-cancelled,
 .activity-card-edited,
 .activity-card-created {
-    padding: 12px 15px;
-    margin-bottom: 15px;
+    padding: 15px 20px;
+    margin-bottom: 18px;
 }
 
 .activity-card-header {
@@ -272,12 +275,12 @@ del {
 }
 
 .activity-card-header .status {
-    margin-top: 5px;
+    margin-top: 6px;
 }
 
 .activity-meta {
-    grid-template-columns: 1fr; /* single column on mobile */
-    gap: 8px;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 .activity-meta .performed {
@@ -286,6 +289,7 @@ del {
 
 .activity-details {
     font-size: 13px;
+    padding: 10px 12px;
 }
 
 /* Tablets (600px – 1024px) */
@@ -299,11 +303,19 @@ del {
         justify-content: space-between;
         align-items: center;
     }
+
+    .content-header h2 {
+        font-size: 26px;
+    }
 }
 
 /* Desktops (1025px+) */
 @media (min-width: 1025px) {
     .activity-meta {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .content-header h2 {
+        font-size: 28px;
     }
 }
