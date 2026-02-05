@@ -217,6 +217,59 @@ input[type="text"] {
     overflow: hidden;
 }
 
+
+/* Edit button */
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e392a;
+    background-color: #e8fbe8;
+    border: 1px solid #c8e6c9;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: #dff8df;
+}
+
+/* Delete button */
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #fecaca;
+}
+
+/* Remove form default spacing */
+.users_actions form {
+    margin: 0;
+}
+
+
+.users_actions {
+    display: flex;
+    align-items: center;          /* vertical center */
+    justify-content: center;      /* horizontal center */
+    gap: 10px;                    /* space between buttons */
+    white-space: nowrap;
+}
+
 /* Optional: style actions/icons inside table */
 .users_actions i {
     font-size: 16px;
@@ -1060,131 +1113,152 @@ th {
 }
 
 /* ================================
-   EDIT USER PAGE STYLES
+   MODERN EDIT USER – RESPONSIVE
    ================================ */
+
+/* Page breathing space */
 .edituser_wrapper {
-    max-width: 700px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 35px 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    font-family: "Poppins", sans-serif;
+    max-width: 620px;            /* slightly smaller = cleaner */
+    margin: 60px auto;
+    padding: 32px 34px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* Title */
 .edituser_wrapper h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 26px;
     text-align: center;
-    font-size: 1.8rem;
-    color: #222;
-    margin-bottom: 30px;
-    font-weight: 600;
+    color: #1e392a;
 }
 
+/* Group spacing */
 .edituser_form-group {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
+/* Labels */
 .edituser_label {
-    display: block;
+    font-size: 0.85rem;
     font-weight: 600;
-    font-size: 0.95rem;
-    color: #444;
+    color: #555;
     margin-bottom: 6px;
 }
 
+/* Inputs & Selects */
 .edituser_input,
 .edituser_select {
     width: 100%;
-    padding: 10px 12px;
+    padding: 9px 12px;
     border-radius: 10px;
-    border: 1.5px solid #ccc;
-    font-size: 0.95rem;
-    background-color: #f9f9f9;
-    transition: 0.3s;
+    border: 1.5px solid #e1e1e1;
+    background-color: #fafafa;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
 }
 
 .edituser_input:focus,
 .edituser_select:focus {
-    border-color: #007bff;
+    border-color: #27ae60;
     background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
     outline: none;
 }
 
-.edituser_actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
+/* Error text */
+.error-text {
+    font-size: 11px;
+    margin-top: 4px;
 }
 
+/* Actions */
+.edituser_actions {
+    display: flex;
+    justify-content: flex-end; /* move buttons to the right */
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+/* Buttons */
 .edituser_btn {
-    display: inline-block;
-    padding: 10px 22px;
-    font-size: 0.95rem;
+    padding: 9px 20px;
+    font-size: 0.9rem;
     font-weight: 600;
-    border: none;
     border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.25s ease;
+    min-width: 100px;
     text-align: center;
 }
 
+/* Save */
 .edituser_btn-save {
-    background-color: #007bff;
-    color: #fff;
+    background: linear-gradient(135deg, #27ae60, #219150);
+    color: white;
 }
 
 .edituser_btn-save:hover {
-    background-color: #0056b3;
-    transform: scale(1.03);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.35);
 }
 
+/* Cancel */
 .edituser_btn-cancel {
-    background-color: #f1f1f1;
+    background-color: #f3f4f6;
     color: #444;
-    text-decoration: none;
 }
 
 .edituser_btn-cancel:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.03);
+    background-color: #e5e7eb;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
+/* ================================
+   TABLET
+   ================================ */
+@media (max-width: 768px) {
     .edituser_wrapper {
-        padding: 25px;
+        max-width: 90%;
+        margin: 40px auto;
+        padding: 28px;
+    }
+
+    .edituser_wrapper h2 {
+        font-size: 1.45rem;
+    }
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+@media (max-width: 480px) {
+    .edituser_wrapper {
+        margin: 25px 15px;
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    .edituser_wrapper h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .edituser_form-group {
+        margin-bottom: 14px;
     }
 
     .edituser_actions {
-        flex-direction: column;
-        gap: 12px;
+        flex-direction: column-reverse; /* Save on top, Cancel below */
+        gap: 10px;
     }
 
     .edituser_btn {
         width: 100%;
     }
 }
-.edit-btn,
-.delete-btn {
-    border: none;
-    background: none;
-    font-size: 14px;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
 
-/* Edit button styling */
-.edit-btn {
-    color: #2563eb; /* blue */
-}
-
-.edit-btn:hover {
-    background-color: #e0e7ff;
-}
 
 /* Delete button styling */
 .delete-btn {
@@ -1614,6 +1688,17 @@ th {
         flex: 1;
         text-align: right;
         color: #1e392a;
+    }
+
+    .users_actions {
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 6px 8px;
+        font-size: 12px;
     }
 }
 

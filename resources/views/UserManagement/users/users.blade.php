@@ -96,10 +96,12 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->department }}</td>
                             <td>{{ $user->role }}</td>
-                            <td>
-                                <a href="{{ route('UserManagement.edit', $user->id) }}" class="edit-btn">✏️ Edit</a>
-                                <form action="{{ route('UserManagement.delete', $user->id) }}" method="POST"
-                                    style="display:inline;">
+                            <td class="users_actions">
+                                <a href="{{ route('UserManagement.edit', $user->id) }}" class="edit-btn">
+                                    ✏️ Edit
+                                </a>
+
+                                <form action="{{ route('UserManagement.delete', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="delete-btn"
@@ -108,6 +110,7 @@
                                     </button>
                                 </form>
                             </td>
+
                         </tr>
                     @endforeach
                 </tbody>
